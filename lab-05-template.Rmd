@@ -21,7 +21,7 @@ library(ggplot2)
 knitr::include_graphics("img/Speaking-the-world.jpg")
 ```
 
-Here, the data and mathematics are not respected as there is no obvious scale to the amount of speakers for a language. We can assume the bigger the bars, the more speakers, however there is no clear format as to how the bars are measured. There is no clear axis label, and some of the data does not make logical sense as Russian and Arabic are 100 million speakers apart, however their scales are closer than compared to Arabic and Hindi, which only has a 27 million speakers difference. 
+Here, the data and mathematics are not respected as there is no obvious scale to the amount of speakers for a language. We can assume the bigger the bars, the more speakers, however there is no clear format as to how the bars are measured. There is no clear axis label, and some of the data does not make logical sense as Russian and Arabic are 100 million speakers apart, however their scales are closer than compared to Arabic and Hindi, which only has a 27 million speakers difference. It is partially effective at communicating the question as visually, it helps us understand and gets the main point across through its colors and length of bars (though some lengths are not to scale).
 
 ## Image 2
 
@@ -29,10 +29,7 @@ Here, the data and mathematics are not respected as there is no obvious scale to
 knitr::include_graphics("img/rose-pop-density-total-area-bw.jpg")
 ```
 
-_Write your comments about image 2 below_
-
-
-
+The mathematics aren't respected here, as it is difficult to understand which format must be for which variable. There is no clear axis or label, which leads to an unclear conclusion of the question as we will need to base it off of common sense. The data is well respected here, as it isn't cluttered and only focuses on necessary details.
 
 ## Image 3
 
@@ -40,10 +37,7 @@ _Write your comments about image 2 below_
 knitr::include_graphics("img/life-expectancy-rule-of-law.png")
 ```
 
-_Write your comments about image 3 below_
-
-
-
+Here, the 
 
 ## Image 4
 
@@ -64,7 +58,7 @@ library(tidyverse)
 library(ggplot2)
 
 # Install that package first 
-# install.packages("fivethirtyeight")
+install.packages("fivethirtyeight")
 library(fivethirtyeight)
 ```
 
@@ -77,10 +71,10 @@ glimpse(candy_df)
 
 ## Exercise 1
 
-How many observations and variables are in this dataset?
+How many observations and variables are in this data-set?
 Did you identify the type of variables, remember that this detail is crucial to create which kind of data visualization in general. 
 
-_Write your comments about results_
+There are 85 observations in this data-set, and 3 different variables. The types of variables are logical variables, double variables, and character variables. 
 
 # Data viz - One variable at a time
 
@@ -96,8 +90,19 @@ candy_df <- candy_df %>%
 Complete the following code to get the data viz to represent "how many candies contain caramel via bar plot". Fill in the blanks, remove the # symbol in front of your code and the execute the code chunk via green play button.
 
 ```{r}
-# ggplot(candy_rankings, aes(x = ______)) +
-#  _____() +
+ ggplot(candy_rankings, aes(x = caramel)) +
+  geom_bar() 
+```
+Just over 70 candies do not contain caramel in their sweets, while around 14 candies do.
+
+```{r}
+ggplot(candy_rankings, aes(x = chocolate)) +
+  geom_bar() +
+  labs(
+    x = "Candies containing chocolate",
+    y = "Number of candies",
+    title = "How many candies contain chocolate?"
+  )
 ```
 
 ## Exercise 3
@@ -105,7 +110,13 @@ Complete the following code to get the data viz to represent "how many candies c
 Now look at a numerical variable, such as `winpercent`. Create an histogram for this variable using ggplot2 functions below. Include informative x and y labels and a title, as a good practice.
 
 ```{r}
-# Your code here
+ggplot(candy_df, aes(x = winpercent)) +
+  geom_histogram() +
+  labs(
+    x = "Win percentage (%)",
+    y = "Amount of wins",
+    title = ""
+  )
 
 ```
 
@@ -120,9 +131,9 @@ Fill in the blanks, remove the # symbol in front of your code and the execute th
 
 ```{r}
 # Your code here
-#ggplot(candy_df, aes(x = ___________)) +
-#  geom_histogram() +
-#  facet_wrap(___________)
+# ggplot(candy_df, aes(x = _)) +
+ # geom_histogram() +
+ # facet_wrap(_)
 
 ```
 
